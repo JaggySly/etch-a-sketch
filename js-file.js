@@ -1,11 +1,15 @@
 // Global Variables
-let square = document.querySelectorAll('.square');
+let square = null;
 let box = document.querySelector('.box');
 let n = 16;
 let slider = document.querySelector('.mySlider');
 let strValue = slider.value;
 let numValue =  parseInt(strValue, 10);
-let applyButton = document.querySelector('apply')
+let applyButton = document.querySelector('.apply');
+let surrealButton = document.querySelector('.surrealButton');
+let blackButton = document.querySelector('.blackButton');
+let color = 'black';
+
 // Create a grid function
 function grid(number){
     box = document.querySelector('.box');
@@ -31,44 +35,74 @@ function removeGrid(number){
         div.remove();
     }
 };
-
 // makes the opening grid
-startGrid(); 
+startGrid();
+// updates slider
 function rangeValue(){
     strValue = slider.value;
     let target = document.querySelector('.value');
     target.innerHTML = strValue + ' x ' + strValue;
-    numValue =  parseInt(strValue, 10);
+    return strValue;
     
 };
 // function for the opening grid
 function startGrid(){
     rangeValue();
     grid(numValue);
-    for(let i = 0; i < square.length; i++){
-        square[i].addEventListener('mouseover', function sketch(){
-            square[i].classList.add('sketch');
-        });
-    }
+    hover();
 };
+// event listener to update slider value
 slider.addEventListener('input', function changeGrid(){
-    removeGrid(numValue);
     rangeValue();
+});
+// event listener to update grid when apply is clicked
+applyButton.addEventListener('click', function changeGrid(){
+    removeGrid(numValue);
+    numValue =  parseInt(strValue, 10);
     grid(numValue);
+    hover();
+});
+surrealButton.addEventListener('click', function rgb(){
+    color = 'surreal';
+});
+blackButton.addEventListener('click', function black(){
+    color = 'black';
+});
+// change color of grid when hovered over
+function hover(){
     for(let i = 0; i < square.length; i++){
         square[i].addEventListener('mouseover', function sketch(){
-            square[i].classList.add('sketch');
+            if(color === 'black'){
+                square[i].style.backgroundColor = 'black';
+            }
+            else if(color === 'surreal'){
+                let randomNum = Math.floor(Math.random() * 8);
+                if (randomNum === 0){
+                    square[i].style.backgroundColor = 'red';
+                }
+                else if (randomNum === 1){
+                    square[i].style.backgroundColor = 'orange';
+                }
+                else if (randomNum === 2){
+                    square[i].style.backgroundColor = 'yellow';
+                }
+                else if (randomNum === 3){
+                    square[i].style.backgroundColor = 'green';
+                }
+                else if (randomNum === 4){
+                    square[i].style.backgroundColor = 'blue';
+                }
+                else if (randomNum === 5){
+                    square[i].style.backgroundColor = 'indigo';
+                }
+                else if (randomNum === 6){
+                    square[i].style.backgroundColor = 'violet';
+                }
+            else if(color === 'darken'){
+                square[i].style.backgroundColor = 'black';
+            }
+            }
+            square[i].style.borderColor = 'whitesmoke';
         })
     }
-});
-//applyButton.addEventListener('click', function changeGrid(){
-   // removeGrid(numValue);
-    
-//})
-
-// change color of grid when hovered over
-//for(let i = 0; i < square.length; i++){
-//    square[i].addEventListener('mouseover', function sketch(){
-//        square[i].classList.add('sketch');
-//    })
-//}
+};

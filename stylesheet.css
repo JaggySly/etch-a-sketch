@@ -9,6 +9,7 @@ body{
 .box{
     display: flex;
     flex-flow: wrap;
+    align-content: stretch;
     box-sizing: content-box;
     margin: 0;
     padding: 0;
@@ -23,16 +24,12 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: darkolivegreen;
+    background-color: white;
     border-style: solid;
     border-color: rgb(119, 118, 118);
     border-width: 1px;
 }
-.sketch{
-    background-color: black;
-    border-color: rgb(119, 118, 118);
-    ;
-}
+
 .container{
     display: flex;
     justify-content: space-around;
