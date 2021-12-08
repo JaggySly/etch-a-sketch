@@ -25,9 +25,13 @@ body{
     padding: 0;
     box-sizing: border-box;
     background-color: white;
+    opacity: 90%;
     border-style: solid;
     border-color: rgb(119, 118, 118);
     border-width: 1px;
+}
+.darkenSquare:hover{
+    margin: 0;
 }
 
 .container{
@@ -73,3 +77,6 @@ body{
 .mySlider::-webkit-slider-thumb:active {
       transform: scale(1.3);
     }
+
+
+    

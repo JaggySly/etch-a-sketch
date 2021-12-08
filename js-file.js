@@ -8,6 +8,7 @@ let numValue =  parseInt(strValue, 10);
 let applyButton = document.querySelector('.apply');
 let surrealButton = document.querySelector('.surrealButton');
 let blackButton = document.querySelector('.blackButton');
+let darkenButton = document.querySelector('.darkenButton');
 let color = 'black';
 
 // Create a grid function
@@ -62,21 +63,26 @@ applyButton.addEventListener('click', function changeGrid(){
     grid(numValue);
     hover();
 });
-surrealButton.addEventListener('click', function rgb(){
+surrealButton.addEventListener('click', function surreal(){
     color = 'surreal';
 });
 blackButton.addEventListener('click', function black(){
     color = 'black';
+});
+darkenButton.addEventListener('click', function darken(){
+    color = 'darken';
 });
 // change color of grid when hovered over
 function hover(){
     for(let i = 0; i < square.length; i++){
         square[i].addEventListener('mouseover', function sketch(){
             if(color === 'black'){
+                square[i].classList.remove('darkenSquare');
                 square[i].style.backgroundColor = 'black';
             }
             else if(color === 'surreal'){
-                let randomNum = Math.floor(Math.random() * 8);
+                square[i].classList.remove('darkenSquare');
+                let randomNum = Math.floor(Math.random() * 7);
                 if (randomNum === 0){
                     square[i].style.backgroundColor = 'red';
                 }
@@ -98,10 +104,14 @@ function hover(){
                 else if (randomNum === 6){
                     square[i].style.backgroundColor = 'violet';
                 }
+            }
             else if(color === 'darken'){
-                square[i].style.backgroundColor = 'black';
+                square[i].classList.add('darkenSquare');
+                let darkSquares = document.querySelectorAll('.darkenSquare');
+                for(j = 0; j < darkSquares.length; j++)
+                    //insert some code that will make squares darker here
             }
-            }
+            
             square[i].style.borderColor = 'whitesmoke';
         })
     }
