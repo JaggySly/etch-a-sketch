@@ -68,121 +68,34 @@ applyButton.addEventListener('click', function changeGrid(){
     hover();
 });
 rainbowButton.addEventListener('click', function rainbow(){
-    color = 'rainbow';
+    colorMode = rainbowMode;
 });
 blackButton.addEventListener('click', function black(){
-    color = 'black';
+    colorMode = blackMode;
 });
 eraserButton.addEventListener('click', function eraser(){
-    color = 'eraser';
+    colorMode = eraserMode;
 });
 warmButton.addEventListener('click', function warm(){
-    color = 'warm';
+    colorMode = warmMode;
 });
 coolButton.addEventListener('click', function cool(){
-    color = 'cool';
+    colorMode = coolMode;
 });
 breezeButton.addEventListener('click', function breeze(){
-    color = 'breeze';
+    colorMode = breezeMode;
 });
 
 // change color of grid when hovered over
 function hover(){
     for(let i = 0; i < square.length; i++){
         square[i].addEventListener('mouseover', function sketch(){
-            if(color === 'black'){
-                square[i].classList.remove('darkenSquare');
-                square[i].style.backgroundColor = 'black';
-                square[i].style.borderColor = 'rgb(56, 199, 185)';
-                return;
-            }
-            else if(color === 'rainbow'){
-                square[i].classList.remove('darkenSquare');
-                let randomNum = Math.floor(Math.random() * 7);
-                if (randomNum === 0){
-                    square[i].style.backgroundColor = 'red';
-                }
-                else if (randomNum === 1){
-                    square[i].style.backgroundColor = 'orange';
-                }
-                else if (randomNum === 2){
-                    square[i].style.backgroundColor = 'yellow';
-                }
-                else if (randomNum === 3){
-                    square[i].style.backgroundColor = 'green';
-                }
-                else if (randomNum === 4){
-                    square[i].style.backgroundColor = 'blue';
-                }
-                else if (randomNum === 5){
-                    square[i].style.backgroundColor = 'indigo';
-                }
-                else if (randomNum === 6){
-                    square[i].style.backgroundColor = 'violet';
-                }
-            }
-            else if(color === 'eraser'){
-                square[i].classList.remove('darkenSquare');
-                square[i].style.backgroundColor = 'white';
-                square[i].style.borderColor = 'rgb(119, 118, 118)';
-                return;
-            }
-            else if(color === 'warm'){
-                square[i].classList.remove('darkenSquare');
-                let randomNum = Math.floor(Math.random() * 4);
-                if (randomNum === 0){
-                    square[i].style.backgroundColor = '#E02401';
-                }
-                else if (randomNum === 1){
-                    square[i].style.backgroundColor = '#F78812';
-                }
-                else if (randomNum === 2){
-                    square[i].style.backgroundColor = '#AB6D23';
-                }
-                else if (randomNum === 3){
-                    square[i].style.backgroundColor = '#51050F';
-                }
-            }
-            else if(color === 'cool'){
-                square[i].classList.remove('darkenSquare');
-                let randomNum = Math.floor(Math.random() * 4);
-                if (randomNum === 0){
-                    square[i].style.backgroundColor = '#22577E';
-                }
-                else if (randomNum === 1){
-                    square[i].style.backgroundColor = '#5584AC';
-                }
-                else if (randomNum === 2){
-                    square[i].style.backgroundColor = '#95D1CC';
-                }
-                else if (randomNum === 3){
-                    square[i].style.backgroundColor = '#F6F2D4';
-                }
-            }
-            else if(color === 'breeze'){
-                square[i].classList.remove('darkenSquare');
-                let randomNum = Math.floor(Math.random() * 4);
-                if (randomNum === 0){
-                    square[i].style.backgroundColor = '#32502E';
-                }
-                else if (randomNum === 1){
-                    square[i].style.backgroundColor = '#406343';
-                }
-                else if (randomNum === 2){
-                    square[i].style.backgroundColor = '#ECE7B4';
-                }
-                else if (randomNum === 3){
-                    square[i].style.backgroundColor = '#F3EFCC';
-                }
-            }
-            square[i].style.borderColor = 'black';
-        })
-    }
+            colorMode(square[i]);
+        });
+    }     
 };
 
 let colorButton = document.querySelectorAll('.cbutton');
-
-
 for(let i = 0; i < colorButton.length; i++){
     colorButton[i].addEventListener('click', function b(){
         if(active === 5){
@@ -194,3 +107,86 @@ for(let i = 0; i < colorButton.length; i++){
         active = 5;
     });
 }
+function rainbowMode(element){
+	element.classList.remove('darkenSquare');
+    let randomNum = Math.floor(Math.random() * 7);
+    if (randomNum === 0){
+        element.style.backgroundColor = 'red';
+    }
+    else if (randomNum === 1){
+        element.style.backgroundColor = 'orange';
+    }
+    else if (randomNum === 2){
+        element.style.backgroundColor = 'yellow';
+    }
+    else if (randomNum === 3){
+        element.style.backgroundColor = 'green';
+    }
+    else if (randomNum === 4){
+        element.style.backgroundColor = 'blue';
+    }
+    else if (randomNum === 5){
+        element.style.backgroundColor = 'indigo';
+    }
+    else if (randomNum === 6){
+        element.style.backgroundColor = 'violet';
+    }
+    element.style.borderColor = 'black';
+};
+function breezeMode(element){
+    let randomNum = Math.floor(Math.random() * 4);
+    if (randomNum === 0){
+        element.style.backgroundColor = '#32502E';
+    }
+    else if (randomNum === 1){
+        element.style.backgroundColor = '#406343';
+    }
+    else if (randomNum === 2){
+        element.style.backgroundColor = '#ECE7B4';
+    }
+    else if (randomNum === 3){
+        element.style.backgroundColor = '#F3EFCC';
+    }
+    element.style.borderColor = 'black';
+};
+
+function coolMode(element){
+    let randomNum = Math.floor(Math.random() * 4);
+    if (randomNum === 0){
+        element.style.backgroundColor = '#22577E';
+    }
+    else if (randomNum === 1){
+        element.style.backgroundColor = '#5584AC';
+    }
+    else if (randomNum === 2){
+        element.style.backgroundColor = '#95D1CC';
+    }
+    else if (randomNum === 3){
+        element.style.backgroundColor = '#F6F2D4';
+    }
+    element.style.borderColor = 'black';
+};
+function warmMode(element){
+    let randomNum = Math.floor(Math.random() * 4);
+    if (randomNum === 0){
+        element.style.backgroundColor = '#E02401';
+    }
+    else if (randomNum === 1){
+        element.style.backgroundColor = '#F78812';
+    }
+    else if (randomNum === 2){
+        element.style.backgroundColor = '#AB6D23';
+    }
+    else if (randomNum === 3){
+        element.style.backgroundColor = '#51050F';
+    }
+    element.style.borderColor = 'black';
+};
+function eraserMode(element){
+    element.style.backgroundColor = 'white';
+    element.style.borderColor = 'rgb(119, 118, 118)';
+};
+function blackMode(element){
+    element.style.backgroundColor = 'black';
+    element.style.borderColor = 'rgb(56, 199, 185)';
+};
