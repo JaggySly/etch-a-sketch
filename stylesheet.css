@@ -45,13 +45,13 @@ p{
     min-width: 500px;
     min-height: 500px;
     overflow: auto;
+    background-color: black;
 }
 .square{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: white;
-    opacity: 90%;
     border-style: solid;
     border-color: rgb(119, 118, 118);
     border-width: 1px;
