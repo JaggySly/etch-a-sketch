@@ -13,6 +13,7 @@ let breezeButton = document.querySelector('.breezeButton');
 let blackButton = document.querySelector('.blackButton');
 let eraserButton = document.querySelector('.eraserButton');
 let color = 'black';
+let active = document.querySelector('.active');
 
 // Create a grid function
 function grid(number){
@@ -178,3 +179,18 @@ function hover(){
         })
     }
 };
+
+let colorButton = document.querySelectorAll('.cbutton');
+
+
+for(let i = 0; i < colorButton.length; i++){
+    colorButton[i].addEventListener('click', function b(){
+        if(active === 5){
+            for(let j = 0; j < colorButton.length; j++){
+                colorButton[j].classList.remove('active');
+            }
+        }
+        colorButton[i].classList.add('active');
+        active = 5;
+    });
+}

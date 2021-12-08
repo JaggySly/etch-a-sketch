@@ -149,7 +149,7 @@ button{
   box-shadow: inset 0 0 0 0 black;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.5s;
+  transition: ease-out 0.4s;
 }
 .apply{
     width: 140px;
@@ -158,7 +158,18 @@ button:hover {
     box-shadow: inset 0 0 0 50px black;
     color: rgb(56, 199, 185);
     border-color: rgb(56, 199, 185);
+    cursor: pointer;
+    transform:scale(1.2)
   }
+button:active{
+    color: black;
+    border-color: black;
+}
+.active{
+    box-shadow: inset 0 0 0 50px black;
+    color: rgb(56, 199, 185);
+    border-color: rgb(56, 199, 185);
+}
 footer{
     height: 25px;
     width: 180px;
