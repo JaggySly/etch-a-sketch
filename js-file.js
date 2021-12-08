@@ -6,9 +6,12 @@ let slider = document.querySelector('.mySlider');
 let strValue = slider.value;
 let numValue =  parseInt(strValue, 10);
 let applyButton = document.querySelector('.apply');
-let surrealButton = document.querySelector('.surrealButton');
+let rainbowButton = document.querySelector('.rainbowButton');
+let warmButton = document.querySelector('.warmButton');
+let coolButton = document.querySelector('.coolButton');
+let breezeButton = document.querySelector('.breezeButton');
 let blackButton = document.querySelector('.blackButton');
-let darkenButton = document.querySelector('.darkenButton');
+let eraserButton = document.querySelector('.eraserButton');
 let color = 'black';
 
 // Create a grid function
@@ -42,7 +45,7 @@ startGrid();
 function rangeValue(){
     strValue = slider.value;
     let target = document.querySelector('.value');
-    target.innerHTML = strValue + ' x ' + strValue;
+    target.innerHTML = strValue + 'x' + strValue + '';
     return strValue;
     
 };
@@ -63,15 +66,25 @@ applyButton.addEventListener('click', function changeGrid(){
     grid(numValue);
     hover();
 });
-surrealButton.addEventListener('click', function surreal(){
-    color = 'surreal';
+rainbowButton.addEventListener('click', function rainbow(){
+    color = 'rainbow';
 });
 blackButton.addEventListener('click', function black(){
     color = 'black';
 });
-darkenButton.addEventListener('click', function darken(){
-    color = 'darken';
+eraserButton.addEventListener('click', function eraser(){
+    color = 'eraser';
 });
+warmButton.addEventListener('click', function warm(){
+    color = 'warm';
+});
+coolButton.addEventListener('click', function cool(){
+    color = 'cool';
+});
+breezeButton.addEventListener('click', function breeze(){
+    color = 'breeze';
+});
+
 // change color of grid when hovered over
 function hover(){
     for(let i = 0; i < square.length; i++){
@@ -79,8 +92,10 @@ function hover(){
             if(color === 'black'){
                 square[i].classList.remove('darkenSquare');
                 square[i].style.backgroundColor = 'black';
+                square[i].style.borderColor = 'rgb(56, 199, 185)';
+                return;
             }
-            else if(color === 'surreal'){
+            else if(color === 'rainbow'){
                 square[i].classList.remove('darkenSquare');
                 let randomNum = Math.floor(Math.random() * 7);
                 if (randomNum === 0){
@@ -105,14 +120,61 @@ function hover(){
                     square[i].style.backgroundColor = 'violet';
                 }
             }
-            else if(color === 'darken'){
-                square[i].classList.add('darkenSquare');
-                let darkSquares = document.querySelectorAll('.darkenSquare');
-                for(j = 0; j < darkSquares.length; j++)
-                    //insert some code that will make squares darker here
+            else if(color === 'eraser'){
+                square[i].classList.remove('darkenSquare');
+                square[i].style.backgroundColor = 'white';
+                square[i].style.borderColor = 'rgb(119, 118, 118)';
+                return;
             }
-            
-            square[i].style.borderColor = 'whitesmoke';
+            else if(color === 'warm'){
+                square[i].classList.remove('darkenSquare');
+                let randomNum = Math.floor(Math.random() * 4);
+                if (randomNum === 0){
+                    square[i].style.backgroundColor = '#E02401';
+                }
+                else if (randomNum === 1){
+                    square[i].style.backgroundColor = '#F78812';
+                }
+                else if (randomNum === 2){
+                    square[i].style.backgroundColor = '#AB6D23';
+                }
+                else if (randomNum === 3){
+                    square[i].style.backgroundColor = '#51050F';
+                }
+            }
+            else if(color === 'cool'){
+                square[i].classList.remove('darkenSquare');
+                let randomNum = Math.floor(Math.random() * 4);
+                if (randomNum === 0){
+                    square[i].style.backgroundColor = '#22577E';
+                }
+                else if (randomNum === 1){
+                    square[i].style.backgroundColor = '#5584AC';
+                }
+                else if (randomNum === 2){
+                    square[i].style.backgroundColor = '#95D1CC';
+                }
+                else if (randomNum === 3){
+                    square[i].style.backgroundColor = '#F6F2D4';
+                }
+            }
+            else if(color === 'breeze'){
+                square[i].classList.remove('darkenSquare');
+                let randomNum = Math.floor(Math.random() * 4);
+                if (randomNum === 0){
+                    square[i].style.backgroundColor = '#32502E';
+                }
+                else if (randomNum === 1){
+                    square[i].style.backgroundColor = '#406343';
+                }
+                else if (randomNum === 2){
+                    square[i].style.backgroundColor = '#ECE7B4';
+                }
+                else if (randomNum === 3){
+                    square[i].style.backgroundColor = '#F3EFCC';
+                }
+            }
+            square[i].style.borderColor = 'black';
         })
     }
 };

@@ -7,28 +7,41 @@
     <title>Etch-a-Sketch</title>
     <script rel='stylesheet' src='js-file.js' defer></script>
     <link rel='stylesheet' href='stylesheet.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 </head>
 <body>
-    <div class='container'>
-        <div class = 'options'>
-            <div class = 'slider-container'>
-                <div class = 'value'>10 x 10</div>
-                <input type='range' min ='1' max='100' value='10' class='mySlider'>
+    <div class='page'>
+        <h1>Etch-a-Sketch</h1>
+        <div class='container'>
+            <div class = 'options'>
+                <div class = 'info'>
+                    <p class = 'instructions'>Move your mouse over the grid to draw.<br> Change the grid size by moving the slider and clicking 'Apply'.<br> Choose your color selection from the buttons below.</p>
+                </div>
+                <div class = 'sliderapply'>
+                    <div class = 'slider-container'>
+                        <div class = 'value'>10x10 </div>
+                        <input type='range' min ='1' max='100' value='10' class='mySlider'>
+                        <div class = 'applyButton'>
+                            <button type = 'button' class = 'apply'>Apply / Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'colorButtons'>
+                    <button type = 'button' class = 'blackButton'>Black</button>
+                    <button type = 'button' class = 'rainbowButton'>Rainbow</button>
+                    <button type = 'button' class = 'warmButton'>Warm</button>
+                    <button type = 'button' class = 'coolButton'>Cool</button>
+                    <button type = 'button' class = 'breezeButton'>Breeze</button>
+                    <button type = 'button' class = 'eraserButton'>Eraser</button> 
+                </div>
             </div>
-            <div class = 'applyButton'>
-                <button type = 'button' class = 'apply'>Apply</button>
-            </div>
-            <div class = 'colorButtons'>
-                <button type = 'button' class = 'blackButton'>Black</button>
-                <button type = 'button' class = 'surrealButton'>Rainbow</button>
-                <button type = 'button' class = 'darkenButton'>Darken</button>
+            
+
+            <div class='box'>
+
             </div>
         </div>
-        
-
-        <div class='box'>
-
-        </div>
+        <footer><p class ='footer'>Copyright © 2021 JaggySly</p><p><a href="https://github.com/JaggySly" target="_blank"><img src='github-brands.svg' alt='Github Logo' class='fa-github' width = 25px></a></p></footer>
     </div>
 </body>
 </html>
