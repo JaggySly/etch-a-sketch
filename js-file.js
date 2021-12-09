@@ -13,6 +13,7 @@ let breezeButton = document.querySelector('.breezeButton');
 let blackButton = document.querySelector('.blackButton');
 let eraserButton = document.querySelector('.eraserButton');
 let darkenButton = document.querySelector('.darkenButton');
+let lightenButton = document.querySelector('.lightenButton');
 let colorMode = blackMode;
 let overlayMode = resetOverlay;
 let active = document.querySelector('.active');
@@ -96,12 +97,18 @@ breezeButton.addEventListener('click', function breeze(){
 darkenButton.addEventListener('click', function darken(){
     overlayMode = darkenMode;
 })
+lightenButton.addEventListener('click', function darken(){
+    overlayMode = lightenMode;
+})
 
 // change color of grid when hovered over
 function hover(){
     for(let i = 0; i < square.length; i++){
         square[i].addEventListener('mouseover', function sketch(){
             if(overlayMode === darkenMode){
+                overlayMode(square[i]);
+            }
+            else if(overlayMode === lightenMode){
                 overlayMode(square[i]);
             }
             else{
@@ -212,6 +219,19 @@ function resetOverlay(element){
     
 };
 function darkenMode(element){
+    box.style.backgroundColor = 'black';
+    if(element.style.opacity){
+        if(Number(element.style.opacity) > 0)
+        element.style.opacity = Number(element.style.opacity) - .1;
+        else if(Number(element.style.opacity) <= 0)
+        return;
+    }
+    else{
+        element.style.opacity = 1;
+    }
+};
+function lightenMode(element){
+    box.style.backgroundColor = 'white';
     if(element.style.opacity){
         if(Number(element.style.opacity) > 0)
         element.style.opacity = Number(element.style.opacity) - .1;
