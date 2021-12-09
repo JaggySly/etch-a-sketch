@@ -1,6 +1,6 @@
 # etch-a-sketch
 
-[Live Link](https://jaggysly.github.io/etch-a-sketch/ "Etch-a-Sketch")
+[Live Link](https://jagroopbagri.github.io/etch-a-sketch/ "Etch-a-Sketch")
 
 Created as part of The Odin Project curriculum.
 
